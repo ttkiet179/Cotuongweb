@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cờ Tướng Online</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="menu-container" id="menu">
+    <h1>Cờ Tướng Online</h1>
+    <button onclick="startNewGame()">New Game</button>
+    <button onclick="viewHistory()">History</button>
+    <button onclick="openSettings()">Settings</button>
+  </div>
+
+  <div id="game-board" style="display: none;">
+    <img src="assets/board/board-ccbridge.png" id="board-image" />
+    <div id="pieces-container"></div>
+  </div>
+  <button id="back-to-menu" onclick="returnToMenu()">↩️ Thoát về Menu</button>
+  <script src="script.js"></script>
+</body>
+</html>
