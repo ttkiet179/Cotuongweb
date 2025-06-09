@@ -14,11 +14,19 @@
     <button onclick="openSettings()">Settings</button>
   </div>
 
-  <div id="game-board" style="display: none;">
-    <img src="assets/board/board-ccbridge.png" id="board-image" />
+  <div id="game-board">
+    <img src="assets/board/board-ccbridge.png" id="board-image" alt="Bàn cờ tướng" />
+    <div id="board-cells-container"></div>
     <div id="pieces-container"></div>
   </div>
+
+  <div id="game-info">
+    <div id="turn-indicator">Lượt: <span id="turn-text">Đỏ</span></div>
+    <button id="resign-btn">Đầu hàng</button>
+  </div>
+
   <button id="back-to-menu" onclick="returnToMenu()">↩️ Thoát về Menu</button>
+
   <script src="script.js"></script>
 </body>
 </html>

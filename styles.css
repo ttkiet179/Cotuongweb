@@ -1,14 +1,13 @@
+* { box-sizing: border-box; }
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom right, #007acc, #ffffff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; justify-content: center; align-items: center;
   height: 100vh;
 }
 
+/* MENU */
 .menu-container {
   text-align: center;
   background: white;
@@ -16,102 +15,94 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
-
-.menu-container h1 {
-  margin-bottom: 30px;
-  color: #007acc;
-}
-
+.menu-container h1 { margin-bottom: 30px; color: #007acc; }
 .menu-container button {
-  display: block;
-  width: 200px;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #007acc;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  display: block; width: 200px; margin: 10px auto;
+  padding: 10px 20px; font-size: 18px;
+  background-color: #007acc; color: white;
+  border: none; border-radius: 6px; cursor: pointer;
   transition: background-color 0.3s;
 }
+.menu-container button:hover { background-color: #005f99; }
 
-.menu-container button:hover {
-  background-color: #005f99;
-}
-
+/* GAME BOARD */
 #game-board {
   position: relative;
-  width: 540px;
-  height: 600px;
-  margin: auto;
+  width: 600px;
+  height: 660px;
+  display: none;
 }
-
 #board-image {
-  width: 100%;
-  height: auto;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
 }
-
+#board-cells-container,
 #pieces-container {
-  position: absolute;    
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
 }
+.board-cell {
+  position: absolute;
+  width: 60px; height: 60px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.board-cell:hover { border-color: #888; }
 
 .piece {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 50px; height: 50px;
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 2;
 }
 
+/* HIGHLIGHT */
 .highlight {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: rgba(0, 255, 0, 0.3);
   border-radius: 50%;
-  background: rgba(255, 255, 0, 0.4);
-  box-shadow: 0 0 8px rgba(255, 255, 0, 0.8);
   cursor: pointer;
-  pointer-events: auto;
-  transition: background 0.2s, box-shadow 0.2s;
   z-index: 1;
 }
-
-.highlight:hover {
-  background: rgba(255, 255, 0, 0.6);
-  box-shadow: 0 0 12px rgba(255, 255, 0, 1);
-}
-
 .highlight.selected {
-  background: rgba(0, 255, 0, 0.4) !important;
-  box-shadow: 0 0 8px rgba(0, 255, 0, 0.8) !important;
+  background: rgba(255, 165, 0, 0.5);
+  border: 2px solid orange;
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 3;
 }
+
+/* INFO & BUTTONS */
+#game-info {
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.8);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex; align-items: center; gap: 20px;
+  z-index: 4;
+}
+#turn-indicator { font-weight: bold; font-size: 18px; }
+#resign-btn {
+  background-color: #ff4d4d; color: white;
+  border: none; padding: 6px 12px;
+  border-radius: 4px; cursor: pointer;
+  transition: background-color 0.3s;
+}
+#resign-btn:hover { background-color: #cc0000; }
 
 #back-to-menu {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 8px 14px;
-  font-size: 16px;
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 3;
+  top: 10px; right: 10px;
+  padding: 8px 14px; font-size: 16px;
+  background-color: #ff4d4d; color: white;
+  border: none; border-radius: 6px; cursor: pointer;
+  z-index: 4;
   transition: background-color 0.3s;
 }
-
-#back-to-menu:hover {
-  background-color: #cc0000;
-}
-
-  
-  
+#back-to-menu:hover { background-color: #cc0000; }
